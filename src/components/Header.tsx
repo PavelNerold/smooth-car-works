@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
     { label: "Služby", href: "#sluzby" },
+    { label: "Galerie", href: "#galerie" },
     { label: "O nás", href: "#o-nas" },
     { label: "Kontakt", href: "#kontakt" },
   ];
@@ -17,12 +19,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-heading font-bold text-xl">A</span>
-            </div>
-            <span className="font-heading font-bold text-xl text-foreground">
-              Auto<span className="text-gradient">Servis</span>
-            </span>
+            <img src={logo} alt="BP Autoservis" className="h-10 md:h-12 w-auto" />
           </a>
 
           {/* Desktop Navigation */}

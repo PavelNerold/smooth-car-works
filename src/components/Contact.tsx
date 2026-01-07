@@ -17,8 +17,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: "E-mail",
-      value: "info@autoservis.cz",
-      href: "mailto:info@autoservis.cz",
+      value: "info@bpautoservis.cz",
+      href: "mailto:info@bpautoservis.cz",
     },
     {
       icon: Clock,
