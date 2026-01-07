@@ -56,7 +56,7 @@ const ContactForm = () => {
           <CheckCircle2 className="w-8 h-8 text-primary" />
         </div>
         <h3 className="font-heading text-xl font-bold mb-2">Zpráva odeslána!</h3>
-        <p className="text-muted-foreground">Ozveme se vám co nejdříve.</p>
+        <p className="text-muted-foreground">Ozveme se Vám co nejdříve.</p>
       </div>
     );
   }
@@ -124,7 +124,7 @@ const ContactForm = () => {
             value={formData.message}
             onChange={handleChange}
             required
-            placeholder="Popište vaši závadu nebo požadavek..."
+            placeholder="Popište Vaši závadu nebo požadavek..."
             rows={4}
             className="bg-background resize-none"
           />
