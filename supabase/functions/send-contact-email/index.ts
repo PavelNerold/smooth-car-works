@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import nodemailer from "https://esm.sh/nodemailer@6.9.9";
+import { SMTPClient } from "https://deno.land/x/denomailer@1.6.0/mod.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -28,13 +28,15 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log(`Connecting to SMTP: ${smtpHost}:${smtpPort}`);
 
-    const transporter = nodemailer.createTransport({
-      host: smtpHost,
-      port: smtpPort,
-      secure: smtpPort === 465,
-      auth: {
-        user: smtpUser,
-        pass: smtpPass,
+    const client = new SMTPClient({
+      connection: {
+        hostname: smtpHost,
+        port: smtpPort,
+        tls: true,
+        auth: {
+          username: smtpUser,
+          password: smtpPass,
+        },
       },
     });
 
@@ -147,8 +149,8 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Odeslat email adminu
     console.log("Sending admin email...");
-    await transporter.sendMail({
-      from: `"Kontaktní formulář" <${smtpUser}>`,
+    await client.send({
+      from: smtpUser,
       to: "info@autoservisbp.cz",
       subject: `Nová zpráva z webu od: ${name}`,
       html: adminEmailHtml,
@@ -156,12 +158,14 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Odeslat potvrzení odesílateli
     console.log("Sending confirmation email...");
-    await transporter.sendMail({
-      from: `"Autoservis BP" <${smtpUser}>`,
+    await client.send({
+      from: smtpUser,
       to: email,
       subject: "Děkujeme za vaši zprávu - Autoservis BP",
       html: confirmationEmailHtml,
     });
+
+    await client.close();
 
     console.log("Emails sent successfully");
 
