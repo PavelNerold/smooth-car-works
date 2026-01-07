@@ -1,4 +1,5 @@
 import { Banknote, Wrench, Coffee, FileText, Palette, CircleDot } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 const WhyUs = () => {
   const reasons = [
@@ -41,33 +42,35 @@ const WhyUs = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-semibold uppercase tracking-wider text-sm mb-4 block">
-            Proč si vybrat nás
-          </span>
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Kvalita, která{" "}
-            <span className="text-gradient">dává smysl</span>
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Chceme, aby servis byl profesionální, transparentní a zároveň cenově rozumný.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-primary font-semibold uppercase tracking-wider text-sm mb-4 block">
+              Proč si vybrat nás
+            </span>
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              Kvalita, která{" "}
+              <span className="text-gradient">dává smysl</span>
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Chceme, aby servis byl profesionální, transparentní a zároveň cenově rozumný.
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Features Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {reasons.map((reason, index) => (
-            <div
-              key={reason.title}
-              className="p-6 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-300 animate-fade-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                <reason.icon className="w-6 h-6 text-primary" />
+            <ScrollReveal key={reason.title} delay={index * 100}>
+              <div
+                className="p-6 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-300 h-full"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+                  <reason.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-heading font-bold text-xl mb-3">{reason.title}</h3>
+                <p className="text-muted-foreground">{reason.description}</p>
               </div>
-              <h3 className="font-heading font-bold text-xl mb-3">{reason.title}</h3>
-              <p className="text-muted-foreground">{reason.description}</p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
