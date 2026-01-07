@@ -1,36 +1,36 @@
-import { CheckCircle2, Users, Timer, Sparkles, ThumbsUp, Truck } from "lucide-react";
+import { Banknote, Wrench, Coffee, FileText, Palette, CircleDot } from "lucide-react";
 
 const WhyUs = () => {
   const reasons = [
     {
-      icon: Users,
-      title: "Zkušený tým",
-      description: "Naši mechanici mají průměrně 10+ let praxe v oboru.",
+      icon: Banknote,
+      title: "Férová cena bez kompromisu",
+      description: "Používáme originální nebo kvalitní značkové díly. Díky rozumné ceně práce ušetříš oproti autorizovanému servisu.",
     },
     {
-      icon: Timer,
-      title: "Rychlé termíny",
-      description: "Většinu servisních prací zvládneme do 24 hodin.",
+      icon: Wrench,
+      title: "Moderní vybavení a tým odborníků",
+      description: "Servisujeme všechny značky – včetně aut v tovární záruce. Máme zkušenost i se sportovními vozy.",
     },
     {
-      icon: Sparkles,
-      title: "Moderní vybavení",
-      description: "Používáme nejnovější diagnostiku a technologie.",
+      icon: Coffee,
+      title: "Čekárna s kávou a Wi-Fi",
+      description: "Když potřebuješ počkat, máš pohodlí a klid – ideální pro rychlejší servis nebo pneuservis.",
     },
     {
-      icon: ThumbsUp,
-      title: "Férové ceny",
-      description: "Transparentní ceník bez skrytých poplatků.",
+      icon: FileText,
+      title: "Transparentně: vše až po schválení",
+      description: "Žádné práce navíc bez domluvy. Vždy víš, co se bude dělat, proč a kolik to bude stát.",
     },
     {
-      icon: Truck,
-      title: "Odvoz a dovoz",
-      description: "Postaráme se o přepravu vašeho vozu.",
+      icon: Palette,
+      title: "Lakovna & klempírna na jednom místě",
+      description: "Od oděrky po opravu po nehodě. Neřešíš další firmu – vše sladíme do jednoho výsledku.",
     },
     {
-      icon: CheckCircle2,
-      title: "Záruka na práci",
-      description: "Na všechny práce poskytujeme záruku 24 měsíců.",
+      icon: CircleDot,
+      title: "Pneuservis bez zbytečného čekání",
+      description: "Přezutí, vyvážení, opravy defektů a kontrola pneu. Rychle, čistě a férově.",
     },
   ];
 
@@ -40,53 +40,35 @@ const WhyUs = () => {
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/5 blur-[120px] rounded-full" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left Column - Content */}
-          <div>
-            <span className="text-primary font-semibold uppercase tracking-wider text-sm mb-4 block">
-              Proč my
-            </span>
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Důvěra postavená na{" "}
-              <span className="text-gradient">kvalitě</span>
-            </h2>
-            <p className="text-muted-foreground text-lg mb-8">
-              Již více než 15 let se staráme o vozidla našich zákazníků. Naším cílem je poskytovat služby nejvyšší kvality za rozumné ceny.
-            </p>
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-primary font-semibold uppercase tracking-wider text-sm mb-4 block">
+            Proč si vybrat nás
+          </span>
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            Kvalita, která{" "}
+            <span className="text-gradient">dává smysl</span>
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            Chceme, aby servis byl profesionální, transparentní a zároveň cenově rozumný.
+          </p>
+        </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="font-heading text-3xl md:text-4xl font-bold text-gradient mb-1">15+</div>
-                <div className="text-sm text-muted-foreground">Let zkušeností</div>
+        {/* Features Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {reasons.map((reason, index) => (
+            <div
+              key={reason.title}
+              className="p-6 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-300 animate-fade-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+                <reason.icon className="w-6 h-6 text-primary" />
               </div>
-              <div className="text-center">
-                <div className="font-heading text-3xl md:text-4xl font-bold text-gradient mb-1">5000+</div>
-                <div className="text-sm text-muted-foreground">Spokojených zákazníků</div>
-              </div>
-              <div className="text-center">
-                <div className="font-heading text-3xl md:text-4xl font-bold text-gradient mb-1">98%</div>
-                <div className="text-sm text-muted-foreground">Spokojenost</div>
-              </div>
+              <h3 className="font-heading font-bold text-xl mb-3">{reason.title}</h3>
+              <p className="text-muted-foreground">{reason.description}</p>
             </div>
-          </div>
-
-          {/* Right Column - Features Grid */}
-          <div className="grid sm:grid-cols-2 gap-4">
-            {reasons.map((reason, index) => (
-              <div
-                key={reason.title}
-                className="p-5 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-300 animate-fade-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <reason.icon className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="font-heading font-bold text-lg mb-2">{reason.title}</h3>
-                <p className="text-sm text-muted-foreground">{reason.description}</p>
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </section>

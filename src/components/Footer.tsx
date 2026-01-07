@@ -1,84 +1,43 @@
+import { Phone, Mail, MapPin, Instagram } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const links = {
-    sluzby: [
-      { label: "Autoservis", href: "#sluzby" },
-      { label: "Autolakovna", href: "#sluzby" },
-      { label: "Pneuservis", href: "#sluzby" },
-      { label: "Klempířské práce", href: "#sluzby" },
-    ],
-    kontakt: [
-      { label: "+420 123 456 789", href: "tel:+420123456789" },
-      { label: "info@bpautoservis.cz", href: "mailto:info@bpautoservis.cz" },
-      { label: "Průmyslová 123, Praha 5", href: "#" },
-    ],
-  };
-
   return (
     <footer className="bg-card border-t border-border/50 py-12 md:py-16">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <a href="/" className="flex items-center gap-2 mb-4">
-              <img src={logo} alt="BP Autoservis" className="h-12 w-auto" />
-            </a>
-            <p className="text-muted-foreground max-w-md">
-              Profesionální autoservis s více než 15 lety zkušeností. Nabízíme kompletní péči o vaše vozidlo včetně lakovny, pneuservisu a klempířských prací.
-            </p>
-          </div>
-
-          {/* Links - Služby */}
+        <div className="grid md:grid-cols-3 gap-10 mb-10">
           <div>
-            <h4 className="font-heading font-bold text-foreground mb-4">Služby</h4>
-            <ul className="space-y-2">
-              {links.sluzby.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+            <img src={logo} alt="Autoservis BP" className="h-10 w-auto mb-4" />
+            <p className="text-muted-foreground mb-4">
+              Profesionální autoservis v Praze – Horních Počernicích. Čistá práce, rychlá domluva a transparentní přístup.
+            </p>
+            <a href="https://www.instagram.com/autoservisbp/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
+              <Instagram className="w-5 h-5" />
+              @autoservisbp
+            </a>
+          </div>
+          <div>
+            <h4 className="font-heading font-bold text-lg mb-4">Služby</h4>
+            <ul className="space-y-2 text-muted-foreground">
+              <li><a href="#sluzby" className="hover:text-primary transition-colors">Autoservis</a></li>
+              <li><a href="#sluzby" className="hover:text-primary transition-colors">Autolakovna</a></li>
+              <li><a href="#sluzby" className="hover:text-primary transition-colors">Pneuservis</a></li>
+              <li><a href="#sluzby" className="hover:text-primary transition-colors">Klempírna</a></li>
             </ul>
           </div>
-
-          {/* Links - Kontakt */}
           <div>
-            <h4 className="font-heading font-bold text-foreground mb-4">Kontakt</h4>
-            <ul className="space-y-2">
-              {links.kontakt.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+            <h4 className="font-heading font-bold text-lg mb-4">Kontakt</h4>
+            <ul className="space-y-3 text-muted-foreground">
+              <li><a href="https://maps.app.goo.gl/eP6UHeakrZ8NMsRA6" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors"><MapPin className="w-4 h-4 text-primary" />Ve Žlíbku 1849/2a, Horní Počernice</a></li>
+              <li><a href="tel:+420777124194" className="flex items-center gap-2 hover:text-primary transition-colors"><Phone className="w-4 h-4 text-primary" />+420 777 124 194</a></li>
+              <li><a href="mailto:info@autoservisbp.cz" className="flex items-center gap-2 hover:text-primary transition-colors"><Mail className="w-4 h-4 text-primary" />info@autoservisbp.cz</a></li>
             </ul>
           </div>
         </div>
-
-        {/* Bottom */}
-        <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
-            © {currentYear} BP Autoservis. Všechna práva vyhrazena.
-          </p>
-          <div className="flex gap-6">
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Ochrana osobních údajů
-            </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Obchodní podmínky
-            </a>
-          </div>
+        <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+          <p>© {currentYear} Autoservis BP. Všechna práva vyhrazena.</p>
         </div>
       </div>
     </footer>
