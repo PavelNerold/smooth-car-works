@@ -52,6 +52,7 @@ const Services = () => {
     <section id="sluzby" className="py-20 md:py-32 relative">
       {/* Background pattern */}
       <div className="absolute inset-0 geometric-pattern opacity-30" />
+      <div className="absolute inset-0 bg-gradient-primary opacity-[0.03]" />
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}

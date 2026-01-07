@@ -36,9 +36,13 @@ const WhyUs = () => {
   ];
 
   return (
-    <section id="o-nas" className="py-20 md:py-32 bg-gradient-card relative overflow-hidden">
+    <section id="o-nas" className="py-20 md:py-32 relative overflow-hidden">
+      {/* Blue gradient background */}
+      <div className="absolute inset-0 bg-gradient-primary opacity-[0.08]" />
+      <div className="absolute inset-0 geometric-pattern opacity-10" />
       {/* Decorative gradient */}
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/5 blur-[120px] rounded-full" />
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/10 blur-[120px] rounded-full" />
+      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-primary/5 blur-[100px] rounded-full" />
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
@@ -62,9 +66,9 @@ const WhyUs = () => {
           {reasons.map((reason, index) => (
             <ScrollReveal key={reason.title} delay={index * 100}>
               <div
-                className="p-6 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-300 h-full"
+                className="p-6 rounded-xl bg-card/80 backdrop-blur-sm border border-primary/10 hover:border-primary/30 hover:bg-card transition-all duration-300 h-full group"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-5 group-hover:bg-primary/30 transition-colors">
                   <reason.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-heading font-bold text-xl mb-3">{reason.title}</h3>

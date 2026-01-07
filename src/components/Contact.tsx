@@ -37,7 +37,9 @@ const Contact = () => {
 
   return (
     <section id="kontakt" className="py-20 md:py-32 relative">
-      <div className="container mx-auto px-4">
+      <div className="absolute inset-0 bg-gradient-primary opacity-5" />
+      <div className="absolute inset-0 geometric-pattern opacity-10" />
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-primary font-semibold uppercase tracking-wider text-sm mb-4 block">
