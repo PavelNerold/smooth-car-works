@@ -3,7 +3,6 @@ import HeroSlider from "@/components/HeroSlider";
 import Services from "@/components/Services";
 import WhyUs from "@/components/WhyUs";
 import Gallery from "@/components/Gallery";
-import GoogleMap from "@/components/GoogleMap";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -17,7 +16,6 @@ const Index = () => {
       <WhyUs />
       <Gallery />
       <Contact />
-      <GoogleMap />
       <Footer />
       <ScrollToTop />
     </div>
