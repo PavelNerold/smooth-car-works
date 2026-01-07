@@ -37,13 +37,15 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
-            <a href="tel:+420123456789" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+            <a href="tel:+420777124194" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
               <Phone className="w-4 h-4" />
-              <span className="font-medium">+420 123 456 789</span>
+              <span className="font-medium">+420 777 124 194</span>
             </a>
-            <Button variant="hero" size="sm">
-              Objednat se
-            </Button>
+            <a href="tel:+420777124194">
+              <Button variant="hero" size="sm">
+                Objednat se
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -69,9 +71,9 @@ const Header = () => {
                   {item.label}
                 </a>
               ))}
-              <a href="tel:+420123456789" className="flex items-center gap-2 text-muted-foreground py-2">
+              <a href="tel:+420777124194" className="flex items-center gap-2 text-muted-foreground py-2">
                 <Phone className="w-4 h-4" />
-                <span>+420 123 456 789</span>
+                <span>+420 777 124 194</span>
               </a>
               <Button variant="hero" className="mt-2">
                 Objednat se
