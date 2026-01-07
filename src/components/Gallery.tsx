@@ -36,10 +36,11 @@ const Gallery = () => {
   ];
 
   return (
-    <section id="galerie" className="py-20 md:py-32 relative bg-gradient-card">
+    <section id="galerie" className="py-20 md:py-32 relative bg-gradient-card overflow-hidden">
       <div className="absolute inset-0 geometric-pattern opacity-5" />
+      
+      {/* Section Header */}
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
         <ScrollReveal>
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-primary font-semibold uppercase tracking-wider text-sm mb-4 block">
@@ -54,50 +55,55 @@ const Gallery = () => {
             </p>
           </div>
         </ScrollReveal>
+      </div>
 
-        {/* Gallery Slider */}
-        <ScrollReveal>
-          <div className="relative group">
-            <div className="overflow-hidden" ref={emblaRef}>
-              <div className="flex gap-3">
-                {images.map((image, index) => (
+      {/* Full-width Gallery Slider */}
+      <ScrollReveal>
+        <div className="relative group">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {images.map((image, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-[80vw] sm:w-[60vw] md:w-[45vw] lg:w-[35vw] xl:w-[28vw] px-2"
+                >
                   <div
-                    key={index}
-                    className="flex-shrink-0 w-[calc(50%-6px)] sm:w-[calc(33.333%-8px)] md:w-[calc(25%-9px)] lg:w-[calc(12.5%-10.5px)]"
+                    className="relative overflow-hidden rounded-2xl cursor-pointer group/item aspect-[4/3]"
+                    onClick={() => setSelectedImage(image.src)}
                   >
-                    <div
-                      className="relative overflow-hidden rounded-xl cursor-pointer group/item aspect-square"
-                      onClick={() => setSelectedImage(image.src)}
-                    >
-                      <img
-                        src={image.src}
-                        alt={image.alt}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover/item:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover/item:translate-y-0 transition-transform duration-300">
+                      <p className="text-foreground font-medium text-sm">{image.alt}</p>
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
-
-            {/* Navigation Arrows */}
-            <button
-              onClick={scrollPrev}
-              className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-primary/90 hover:bg-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
-            >
-              <ChevronLeft className="w-5 h-5 text-primary-foreground" />
-            </button>
-            <button
-              onClick={scrollNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-primary/90 hover:bg-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
-            >
-              <ChevronRight className="w-5 h-5 text-primary-foreground" />
-            </button>
           </div>
-        </ScrollReveal>
 
-        {/* Instagram CTA */}
+          {/* Navigation Arrows */}
+          <button
+            onClick={scrollPrev}
+            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-primary/90 hover:bg-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 shadow-lg"
+          >
+            <ChevronLeft className="w-6 h-6 text-primary-foreground" />
+          </button>
+          <button
+            onClick={scrollNext}
+            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-primary/90 hover:bg-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 shadow-lg"
+          >
+            <ChevronRight className="w-6 h-6 text-primary-foreground" />
+          </button>
+        </div>
+      </ScrollReveal>
+
+      {/* Instagram CTA */}
+      <div className="container mx-auto px-4 relative z-10">
         <ScrollReveal delay={200}>
           <div className="mt-10 text-center">
             <a href="https://www.instagram.com/autoservisbp/" target="_blank" rel="noopener noreferrer">
