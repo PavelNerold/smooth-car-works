@@ -16,8 +16,8 @@ const Index = () => {
       <Services />
       <WhyUs />
       <Gallery />
-      <GoogleMap />
       <Contact />
+      <GoogleMap />
       <Footer />
       <ScrollToTop />
     </div>
