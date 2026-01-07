@@ -40,112 +40,85 @@ const handler = async (req: Request): Promise<Response> => {
       },
     });
 
+    // Logo URL
+    const logoUrl = "https://wvrdemfhkibcyxlqzrwg.supabase.co/storage/v1/object/public/assets/logo.png";
+
     // Email pro autoservis (příjemce zprávy)
-    const adminEmailHtml = `
-<!DOCTYPE html>
+    const adminEmailHtml = `<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <style>
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; }
-    .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-    .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #ffffff; padding: 30px; text-align: center; }
-    .header h1 { margin: 0; font-size: 24px; }
-    .content { padding: 30px; }
-    .field { margin-bottom: 20px; }
-    .label { font-weight: 600; color: #666; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; }
-    .value { color: #333; font-size: 16px; padding: 10px; background: #f8f9fa; border-radius: 6px; border-left: 3px solid #f59e0b; }
-    .message-box { background: #fff8e1; border: 1px solid #f59e0b; border-radius: 8px; padding: 20px; margin-top: 20px; }
-    .footer { background: #f8f9fa; padding: 20px; text-align: center; color: #666; font-size: 12px; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1>📧 Nová zpráva z webu</h1>
-    </div>
-    <div class="content">
-      <div class="field">
-        <div class="label">Jméno</div>
-        <div class="value">${name}</div>
-      </div>
-      <div class="field">
-        <div class="label">E-mail</div>
-        <div class="value"><a href="mailto:${email}">${email}</a></div>
-      </div>
-      ${phone ? `
-      <div class="field">
-        <div class="label">Telefon</div>
-        <div class="value"><a href="tel:${phone}">${phone}</a></div>
-      </div>
-      ` : ''}
-      <div class="message-box">
-        <div class="label">Zpráva</div>
-        <p style="margin: 10px 0 0 0; white-space: pre-wrap;">${message}</p>
-      </div>
-    </div>
-    <div class="footer">
-      Odesláno z kontaktního formuláře na webu autoservisbp.cz
-    </div>
-  </div>
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f1419; margin: 0; padding: 20px;">
+<div style="max-width: 600px; margin: 0 auto; background: linear-gradient(180deg, #1a1f2e 0%, #0f1419 100%); border-radius: 16px; overflow: hidden; border: 1px solid rgba(59, 130, 246, 0.2);">
+<div style="background: linear-gradient(135deg, #1e3a5f 0%, #0f1419 100%); padding: 30px; text-align: center; border-bottom: 1px solid rgba(59, 130, 246, 0.3);">
+<img src="${logoUrl}" alt="Autoservis BP" style="height: 50px; width: auto; margin-bottom: 15px;">
+<h1 style="margin: 0; font-size: 22px; color: #ffffff;">Nova zprava z webu</h1>
+</div>
+<div style="padding: 30px;">
+<div style="margin-bottom: 20px;">
+<div style="font-weight: 600; color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Jmeno</div>
+<div style="color: #ffffff; font-size: 16px; padding: 12px 15px; background: rgba(30, 58, 95, 0.5); border-radius: 8px; border-left: 3px solid #3b82f6;">${name}</div>
+</div>
+<div style="margin-bottom: 20px;">
+<div style="font-weight: 600; color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">E-mail</div>
+<div style="color: #ffffff; font-size: 16px; padding: 12px 15px; background: rgba(30, 58, 95, 0.5); border-radius: 8px; border-left: 3px solid #3b82f6;"><a href="mailto:${email}" style="color: #60a5fa; text-decoration: none;">${email}</a></div>
+</div>
+${phone ? `<div style="margin-bottom: 20px;">
+<div style="font-weight: 600; color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Telefon</div>
+<div style="color: #ffffff; font-size: 16px; padding: 12px 15px; background: rgba(30, 58, 95, 0.5); border-radius: 8px; border-left: 3px solid #3b82f6;"><a href="tel:${phone}" style="color: #60a5fa; text-decoration: none;">${phone}</a></div>
+</div>` : ''}
+<div style="background: rgba(30, 58, 95, 0.3); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 12px; padding: 20px; margin-top: 25px;">
+<div style="font-weight: 600; color: #94a3b8; font-size: 12px; text-transform: uppercase; margin-bottom: 12px;">Zprava</div>
+<p style="margin: 0; white-space: pre-wrap; color: #e2e8f0; line-height: 1.6;">${message}</p>
+</div>
+</div>
+<div style="background: rgba(15, 20, 25, 0.8); padding: 20px; text-align: center; color: #64748b; font-size: 12px; border-top: 1px solid rgba(59, 130, 246, 0.2);">
+Odeslano z kontaktniho formulare na webu autoservisbp.cz
+</div>
+</div>
 </body>
-</html>
-    `;
+</html>`;
 
     // Potvrzovací email pro odesílatele
-    const confirmationEmailHtml = `
-<!DOCTYPE html>
+    const confirmationEmailHtml = `<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <style>
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; }
-    .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-    .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #ffffff; padding: 30px; text-align: center; }
-    .header h1 { margin: 0; font-size: 24px; }
-    .header p { margin: 10px 0 0 0; opacity: 0.9; }
-    .content { padding: 30px; }
-    .success-icon { text-align: center; font-size: 48px; margin-bottom: 20px; }
-    .message { text-align: center; color: #333; line-height: 1.6; }
-    .message h2 { color: #1a1a2e; margin-bottom: 15px; }
-    .copy-box { background: #f8f9fa; border-radius: 8px; padding: 20px; margin: 25px 0; border-left: 3px solid #f59e0b; }
-    .copy-label { font-weight: 600; color: #666; font-size: 12px; text-transform: uppercase; margin-bottom: 10px; }
-    .contact-info { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #fff; padding: 20px; border-radius: 8px; text-align: center; margin-top: 25px; }
-    .contact-info a { color: #fff; text-decoration: none; font-weight: 600; }
-    .footer { background: #f8f9fa; padding: 20px; text-align: center; color: #666; font-size: 12px; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1>🔧 Autoservis BP</h1>
-      <p>Profesionální péče o vaše vozidlo</p>
-    </div>
-    <div class="content">
-      <div class="success-icon">✅</div>
-      <div class="message">
-        <h2>Děkujeme za vaši zprávu, ${name}!</h2>
-        <p>Vaši zprávu jsme úspěšně přijali a budeme se jí věnovat co nejdříve. Obvykle odpovídáme do 24 hodin v pracovních dnech.</p>
-      </div>
-      
-      <div class="copy-box">
-        <div class="copy-label">Kopie vaší zprávy:</div>
-        <p style="margin: 0; white-space: pre-wrap; color: #333;">${message}</p>
-      </div>
-      
-      <div class="contact-info">
-        <p style="margin: 0 0 10px 0;">Potřebujete rychlou odpověď?</p>
-        <a href="tel:+420602773877">📞 +420 602 773 877</a>
-      </div>
-    </div>
-    <div class="footer">
-      <p style="margin: 0;">S pozdravem,<br><strong>Tým Autoservis BP</strong></p>
-      <p style="margin: 10px 0 0 0; font-size: 11px;">K Cikánce 680, Slaný • www.autoservisbp.cz</p>
-    </div>
-  </div>
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f1419; margin: 0; padding: 20px;">
+<div style="max-width: 600px; margin: 0 auto; background: linear-gradient(180deg, #1a1f2e 0%, #0f1419 100%); border-radius: 16px; overflow: hidden; border: 1px solid rgba(59, 130, 246, 0.2);">
+<div style="background: linear-gradient(135deg, #1e3a5f 0%, #0f1419 100%); padding: 30px; text-align: center; border-bottom: 1px solid rgba(59, 130, 246, 0.3);">
+<img src="${logoUrl}" alt="Autoservis BP" style="height: 50px; width: auto; margin-bottom: 15px;">
+<p style="margin: 10px 0 0 0; color: #94a3b8; font-size: 14px;">Profesionalni pece o vase vozidlo</p>
+</div>
+<div style="padding: 30px;">
+<div style="text-align: center; margin-bottom: 25px;">
+<div style="width: 70px; height: 70px; background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+<span style="font-size: 36px; line-height: 70px;">&#10003;</span>
+</div>
+<h2 style="color: #ffffff; margin: 0 0 15px 0; font-size: 24px;">Dekujeme za vasi zpravu, ${name}!</h2>
+<p style="color: #94a3b8; line-height: 1.6; margin: 0;">Vasi zpravu jsme uspesne prijali a budeme se ji venovat co nejdrive. Obvykle odpovidame do 24 hodin v pracovnich dnech.</p>
+</div>
+<div style="background: rgba(30, 58, 95, 0.3); border-radius: 12px; padding: 20px; margin: 25px 0; border-left: 3px solid #3b82f6;">
+<div style="font-weight: 600; color: #94a3b8; font-size: 12px; text-transform: uppercase; margin-bottom: 12px;">Kopie vasi zpravy:</div>
+<p style="margin: 0; white-space: pre-wrap; color: #e2e8f0; line-height: 1.6;">${message}</p>
+</div>
+<div style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: #fff; padding: 20px; border-radius: 12px; text-align: center;">
+<p style="margin: 0 0 10px 0; font-size: 14px;">Potrebujete rychlou odpoved?</p>
+<a href="tel:+420777124194" style="color: #ffffff; text-decoration: none; font-weight: 600; font-size: 18px;">+420 777 124 194</a>
+</div>
+</div>
+<div style="background: rgba(15, 20, 25, 0.8); padding: 25px; text-align: center; color: #94a3b8; font-size: 13px; border-top: 1px solid rgba(59, 130, 246, 0.2);">
+<p style="margin: 0 0 5px 0;">S pozdravem,</p>
+<p style="margin: 0 0 15px 0; color: #ffffff; font-weight: 600;">Tym Autoservis BP</p>
+<p style="margin: 0; font-size: 11px; color: #64748b;">Ve Zlibku 1849/2a, Horni Pocernice | www.autoservisbp.cz</p>
+</div>
+</div>
 </body>
-</html>
-    `;
+</html>`;
 
     // Odeslat email adminu
     console.log("Sending admin email...");
