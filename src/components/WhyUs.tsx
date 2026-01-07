@@ -6,32 +6,32 @@ const WhyUs = () => {
     {
       icon: Banknote,
       title: "Férová cena bez kompromisu",
-      description: "Používáme originální nebo kvalitní značkové díly. Díky rozumné ceně práce ušetříš oproti autorizovanému servisu.",
+      description: "Používáme originální nebo kvalitní značkové díly. Díky rozumné ceně práce ušetříte oproti autorizovanému servisu.",
     },
     {
       icon: Wrench,
       title: "Moderní vybavení a tým odborníků",
-      description: "Servisujeme všechny značky – včetně aut v tovární záruce. Máme zkušenost i se sportovními vozy.",
+      description: "Servisujeme všechny značky – včetně aut v tovární záruce. Máme zkušenosti i se sportovními vozy.",
     },
     {
       icon: Coffee,
       title: "Čekárna s kávou a Wi-Fi",
-      description: "Když potřebuješ počkat, máš pohodlí a klid – ideální pro rychlejší servis nebo pneuservis.",
+      description: "Pokud potřebujete počkat, máte k dispozici pohodlí a klid – ideální pro rychlejší servis nebo pneuservis.",
     },
     {
       icon: FileText,
       title: "Transparentně: vše až po schválení",
-      description: "Žádné práce navíc bez domluvy. Vždy víš, co se bude dělat, proč a kolik to bude stát.",
+      description: "Žádné práce navíc bez domluvy. Vždy víte, co se bude dělat, proč a kolik to bude stát.",
     },
     {
       icon: Palette,
       title: "Lakovna & klempírna na jednom místě",
-      description: "Od oděrky po opravu po nehodě. Neřešíš další firmu – vše sladíme do jednoho výsledku.",
+      description: "Od oděrky po opravu po nehodě. Nemusíte řešit další firmu – vše sladíme do jednoho výsledku.",
     },
     {
       icon: CircleDot,
       title: "Pneuservis bez zbytečného čekání",
-      description: "Přezutí, vyvážení, opravy defektů a kontrola pneu. Rychle, čistě a férově.",
+      description: "Přezutí, vyvážení, opravy defektů a kontrola pneumatik. Rychle, čistě a férově.",
     },
   ];
 

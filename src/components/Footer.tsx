@@ -65,6 +65,7 @@ const Footer = () => {
         </div>
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>© {currentYear} Autoservis BP. Všechna práva vyhrazena.</p>
+          <p>IČ: 67998577</p>
         </div>
       </div>
     </footer>

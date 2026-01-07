@@ -50,7 +50,7 @@ const Contact = () => {
             <span className="text-gradient">termín</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Nejrychlejší je telefon. Když nemůžeš, pošli mail nebo vyplň formulář – ozveme se zpět.
+            Nejrychlejší je telefon. Pokud nemůžete, pošlete e-mail nebo vyplňte formulář – ozveme se Vám.
           </p>
         </div>
 

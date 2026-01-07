@@ -88,18 +88,18 @@ Odeslano z kontaktniho formulare na webu autoservisbp.cz
 <div style="max-width: 600px; margin: 0 auto; background: linear-gradient(180deg, #1a1f2e 0%, #0f1419 100%); border-radius: 16px; overflow: hidden; border: 1px solid rgba(59, 130, 246, 0.2);">
 <div style="background: linear-gradient(135deg, #1e3a5f 0%, #0f1419 100%); padding: 30px; text-align: center; border-bottom: 1px solid rgba(59, 130, 246, 0.3);">
 <h1 style="margin: 0; font-size: 24px; color: #ffffff;">Autoservis BP</h1>
-<p style="margin: 10px 0 0 0; color: #94a3b8; font-size: 14px;">Profesionalni pece o vase vozidlo</p>
+<p style="margin: 10px 0 0 0; color: #94a3b8; font-size: 14px;">Profesionalni pece o Vase vozidlo</p>
 </div>
 <div style="padding: 30px;">
 <div style="text-align: center; margin-bottom: 25px;">
 <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
 <span style="font-size: 36px; line-height: 70px;">&#10003;</span>
 </div>
-<h2 style="color: #ffffff; margin: 0 0 15px 0; font-size: 24px;">Dekujeme za vasi zpravu, ${name}!</h2>
+<h2 style="color: #ffffff; margin: 0 0 15px 0; font-size: 24px;">Dekujeme za Vasi zpravu, ${name}!</h2>
 <p style="color: #94a3b8; line-height: 1.6; margin: 0;">Vasi zpravu jsme uspesne prijali a budeme se ji venovat co nejdrive. Obvykle odpovidame do 24 hodin v pracovnich dnech.</p>
 </div>
 <div style="background: rgba(30, 58, 95, 0.3); border-radius: 12px; padding: 20px; margin: 25px 0; border-left: 3px solid #3b82f6;">
-<div style="font-weight: 600; color: #94a3b8; font-size: 12px; text-transform: uppercase; margin-bottom: 12px;">Kopie vasi zpravy:</div>
+<div style="font-weight: 600; color: #94a3b8; font-size: 12px; text-transform: uppercase; margin-bottom: 12px;">Kopie Vasi zpravy:</div>
 <p style="margin: 0; white-space: pre-wrap; color: #e2e8f0; line-height: 1.6;">${message}</p>
 </div>
 <div style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: #fff; padding: 20px; border-radius: 12px; text-align: center;">
@@ -130,7 +130,7 @@ Odeslano z kontaktniho formulare na webu autoservisbp.cz
     await client.send({
       from: smtpUser,
       to: email,
-      subject: "Děkujeme za vaši zprávu - Autoservis BP",
+      subject: "Děkujeme za Vaši zprávu - Autoservis BP",
       html: confirmationEmailHtml,
     });
 

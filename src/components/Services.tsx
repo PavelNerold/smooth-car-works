@@ -66,7 +66,7 @@ const Services = () => {
               <span className="text-gradient">až po opravu motoru</span>
             </h2>
             <p className="text-muted-foreground text-lg">
-              Běžný servis, diagnostika i opravy po nehodách. Níže je výběr – když tu něco nenajdeš, zavolej a domluvíme postup.
+              Běžný servis, diagnostika i opravy po nehodách. Níže je výběr – pokud zde něco nenajdete, zavolejte a domluvíme postup.
             </p>
           </div>
         </ScrollReveal>
@@ -122,7 +122,7 @@ const Services = () => {
 
                   <div className="mt-8 p-4 rounded-xl bg-primary/5 border border-primary/20">
                     <p className="text-sm text-foreground">
-                      <strong>Máš specifický požadavek?</strong> Zavolej nám a domluvíme postup. Servisujeme všechny značky včetně sportovních vozů.
+                      <strong>Máte specifický požadavek?</strong> Zavolejte nám a domluvíme postup. Servisujeme všechny značky včetně sportovních vozů.
                     </p>
                   </div>
                 </div>
