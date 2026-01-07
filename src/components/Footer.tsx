@@ -22,11 +22,11 @@ const Footer = () => {
           className="absolute inset-0"
           title="Autoservis BP - mapa"
         />
-        <div className="absolute inset-0 flex items-center justify-center z-20">
+        <div className="absolute bottom-4 right-4 z-20">
           <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
-            <Button variant="hero" size="lg" className="shadow-lg">
+            <Button variant="hero" size="default" className="shadow-lg">
               <Navigation className="w-4 h-4" />
-              Navigovat do servisu
+              Navigovat
             </Button>
           </a>
         </div>
