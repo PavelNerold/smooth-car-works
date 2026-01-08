@@ -1,4 +1,4 @@
-import { Wrench, Thermometer, Gauge, Settings, Car, CircleDot } from "lucide-react";
+import { Wrench, Thermometer, Gauge, Settings, Car, CircleDot, ClipboardCheck } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
 const Pricing = () => {
@@ -58,6 +58,16 @@ const Pricing = () => {
         { service: "Oprava motoru", price: "individuálně" },
         { service: "Oprava převodovky", price: "individuálně" },
         { service: "Oprava výfukového systému", price: "od 800 Kč" },
+      ],
+    },
+    {
+      icon: ClipboardCheck,
+      title: "Příprava na STK",
+      description: "Kontrola a příprava vozidla na technickou prohlídku.",
+      items: [
+        { service: "Kontrola před STK", price: "od 500 Kč" },
+        { service: "Příprava na STK (drobné opravy)", price: "individuálně" },
+        { service: "Zajištění STK + emise", price: "dle ceníku stanice" },
       ],
     },
   ];
