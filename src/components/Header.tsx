@@ -5,6 +5,9 @@ import logo from "@/assets/logo.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navItems = [{
+    label: "O nás",
+    href: "#o-nas"
+  }, {
     label: "Služby",
     href: "#sluzby"
   }, {
@@ -13,9 +16,6 @@ const Header = () => {
   }, {
     label: "Galerie",
     href: "#galerie"
-  }, {
-    label: "O nás",
-    href: "#o-nas"
   }, {
     label: "Kontakt",
     href: "#kontakt"
