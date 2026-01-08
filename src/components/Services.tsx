@@ -11,7 +11,7 @@ const Services = () => {
         { icon: Settings, label: "Diagnostika", desc: "Rychlé určení závady – žádné výměny naslepo." },
         { icon: Gauge, label: "Geometrie", desc: "Nastavení náprav, stabilita, sjíždění pneumatik." },
         { icon: ClipboardCheck, label: "Příprava a zajištění STK", desc: "Kontrola předem, ať STK proběhne v klidu." },
-        { icon: Thermometer, label: "Klimatizace", desc: "Kontrola, servis, doplnění – aby chladila jak má. Chladivo: R134a, 1234yf" },
+        { icon: Thermometer, label: "Klimatizace", desc: "Kontrola, servis, doplnění. Chladivo: R134a, 1234yf" },
       ],
       expanded: [
         "Výměna oleje a filtrů",
