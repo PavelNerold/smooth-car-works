@@ -59,17 +59,26 @@ const handler = async (req: Request): Promise<Response> => {
   background-size: 80px 140px;
   background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
 }
+.header-texture {
+  background-color: #176fd3;
+  background-image: 
+    linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 50%),
+    linear-gradient(30deg, rgba(13, 74, 143, 0.5) 12%, transparent 12.5%, transparent 87%, rgba(13, 74, 143, 0.5) 87.5%),
+    linear-gradient(150deg, rgba(13, 74, 143, 0.5) 12%, transparent 12.5%, transparent 87%, rgba(13, 74, 143, 0.5) 87.5%),
+    linear-gradient(60deg, rgba(13, 74, 143, 0.3) 25%, transparent 25.5%, transparent 75%, rgba(13, 74, 143, 0.3) 75%);
+  background-size: 100% 100%, 60px 105px, 60px 105px, 60px 105px;
+}
 </style>
 </head>
 <body class="geometric-bg" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 30px;">
 <div style="max-width: 600px; margin: 0 auto; background: linear-gradient(180deg, #0f1218 0%, #0a0c10 100%); border-radius: 16px; overflow: hidden; border: 1px solid rgba(23, 111, 211, 0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
-<div style="background: linear-gradient(135deg, #176fd3 0%, #0d4a8f 100%); padding: 35px; text-align: center;">
-<h1 style="margin: 0; font-size: 24px; color: #ffffff; font-weight: 700; letter-spacing: -0.5px;">Nova zprava z webu</h1>
+<div class="header-texture" style="background: linear-gradient(135deg, #176fd3 0%, #0d4a8f 100%); padding: 35px; text-align: center;">
+<h1 style="margin: 0; font-size: 24px; color: #ffffff; font-weight: 700; letter-spacing: -0.5px;">Nová zpráva z webu</h1>
 <p style="margin: 8px 0 0 0; color: rgba(255,255,255,0.8); font-size: 14px;">autoservisbp.cz</p>
 </div>
 <div style="padding: 35px;">
 <div style="margin-bottom: 24px;">
-<div style="font-weight: 600; color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Jmeno</div>
+<div style="font-weight: 600; color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Jméno</div>
 <div style="color: #ffffff; font-size: 16px; padding: 14px 18px; background: linear-gradient(135deg, #151821 0%, #0f1218 100%); border-radius: 10px; border-left: 3px solid #176fd3;">${name}</div>
 </div>
 <div style="margin-bottom: 24px;">
@@ -81,18 +90,18 @@ ${phone ? `<div style="margin-bottom: 24px;">
 <div style="color: #ffffff; font-size: 16px; padding: 14px 18px; background: linear-gradient(135deg, #151821 0%, #0f1218 100%); border-radius: 10px; border-left: 3px solid #176fd3;"><a href="tel:${phone}" style="color: #5ba3f5; text-decoration: none;">${phone}</a></div>
 </div>` : ''}
 <div style="background: linear-gradient(135deg, #151821 0%, #0f1218 100%); border: 1px solid rgba(23, 111, 211, 0.2); border-radius: 12px; padding: 24px; margin-top: 28px;">
-<div style="font-weight: 600; color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px;">Zprava</div>
+<div style="font-weight: 600; color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px;">Zpráva</div>
 <p style="margin: 0; white-space: pre-wrap; color: #e5e7eb; line-height: 1.7; font-size: 15px;">${message}</p>
 </div>
 </div>
 <div style="background: #0a0c10; padding: 24px; text-align: center; color: #6b7280; font-size: 12px; border-top: 1px solid rgba(23, 111, 211, 0.15);">
-Odeslano z kontaktniho formulare na webu autoservisbp.cz
+Odesláno z kontaktního formuláře na webu autoservisbp.cz
 </div>
 </div>
 </body>
 </html>`;
 
-    // Potvrzovaci email pro odesilatele
+    // Potvrzovací email pro odesílatele
     const confirmationEmailHtml = `<!DOCTYPE html>
 <html>
 <head>
@@ -111,35 +120,44 @@ Odeslano z kontaktniho formulare na webu autoservisbp.cz
   background-size: 80px 140px;
   background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
 }
+.header-texture {
+  background-color: #176fd3;
+  background-image: 
+    linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 50%),
+    linear-gradient(30deg, rgba(13, 74, 143, 0.5) 12%, transparent 12.5%, transparent 87%, rgba(13, 74, 143, 0.5) 87.5%),
+    linear-gradient(150deg, rgba(13, 74, 143, 0.5) 12%, transparent 12.5%, transparent 87%, rgba(13, 74, 143, 0.5) 87.5%),
+    linear-gradient(60deg, rgba(13, 74, 143, 0.3) 25%, transparent 25.5%, transparent 75%, rgba(13, 74, 143, 0.3) 75%);
+  background-size: 100% 100%, 60px 105px, 60px 105px, 60px 105px;
+}
 </style>
 </head>
 <body class="geometric-bg" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 30px;">
 <div style="max-width: 600px; margin: 0 auto; background: linear-gradient(180deg, #0f1218 0%, #0a0c10 100%); border-radius: 16px; overflow: hidden; border: 1px solid rgba(23, 111, 211, 0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
-<div style="background: linear-gradient(135deg, #176fd3 0%, #0d4a8f 100%); padding: 40px; text-align: center;">
+<div class="header-texture" style="background: linear-gradient(135deg, #176fd3 0%, #0d4a8f 100%); padding: 40px; text-align: center;">
 <h1 style="margin: 0; font-size: 28px; color: #ffffff; font-weight: 700; letter-spacing: -0.5px;">Autoservis BP</h1>
-<p style="margin: 10px 0 0 0; color: rgba(255,255,255,0.85); font-size: 14px;">Profesionalni pece o Vase vozidlo</p>
+<p style="margin: 10px 0 0 0; color: rgba(255,255,255,0.85); font-size: 14px;">Profesionální péče o Vaše vozidlo</p>
 </div>
 <div style="padding: 40px;">
 <div style="text-align: center; margin-bottom: 30px;">
 <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); border-radius: 50%; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);">
 <span style="font-size: 40px; line-height: 80px; color: #ffffff;">&#10003;</span>
 </div>
-<h2 style="color: #ffffff; margin: 0 0 16px 0; font-size: 26px; font-weight: 700;">Dekujeme za Vasi zpravu!</h2>
-<p style="color: #9ca3af; line-height: 1.7; margin: 0; font-size: 15px;">Vazeny/a ${name}, Vasi zpravu jsme uspesne prijali a budeme se ji venovat co nejdrive. Obvykle odpovidame do 24 hodin v pracovnich dnech.</p>
+<h2 style="color: #ffffff; margin: 0 0 16px 0; font-size: 26px; font-weight: 700;">Děkujeme za Vaši zprávu!</h2>
+<p style="color: #9ca3af; line-height: 1.7; margin: 0; font-size: 15px;">Vážený/á ${name}, Vaši zprávu jsme úspěšně přijali a budeme se jí věnovat co nejdříve. Obvykle odpovídáme do 24 hodin v pracovních dnech.</p>
 </div>
 <div style="background: linear-gradient(135deg, #151821 0%, #0f1218 100%); border-radius: 12px; padding: 24px; margin: 30px 0; border-left: 3px solid #176fd3;">
-<div style="font-weight: 600; color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px;">Kopie Vasi zpravy:</div>
+<div style="font-weight: 600; color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px;">Kopie Vaší zprávy:</div>
 <p style="margin: 0; white-space: pre-wrap; color: #e5e7eb; line-height: 1.7; font-size: 15px;">${message}</p>
 </div>
 <div style="background: linear-gradient(135deg, #176fd3 0%, #0d4a8f 100%); color: #fff; padding: 24px; border-radius: 12px; text-align: center; box-shadow: 0 10px 30px rgba(23, 111, 211, 0.3);">
-<p style="margin: 0 0 12px 0; font-size: 14px; opacity: 0.9;">Potrebujete rychlou odpoved?</p>
+<p style="margin: 0 0 12px 0; font-size: 14px; opacity: 0.9;">Potřebujete rychlou odpověď?</p>
 <a href="tel:+420777124194" style="color: #ffffff; text-decoration: none; font-weight: 700; font-size: 20px;">+420 777 124 194</a>
 </div>
 </div>
 <div style="background: #0a0c10; padding: 30px; text-align: center; color: #9ca3af; font-size: 13px; border-top: 1px solid rgba(23, 111, 211, 0.15);">
 <p style="margin: 0 0 6px 0;">S pozdravem,</p>
-<p style="margin: 0 0 18px 0; color: #ffffff; font-weight: 600; font-size: 15px;">Tym Autoservis BP</p>
-<p style="margin: 0; font-size: 11px; color: #6b7280;">Ve Zlibku 1849/2a, Praha 9 - Horni Pocernice | www.autoservisbp.cz</p>
+<p style="margin: 0 0 18px 0; color: #ffffff; font-weight: 600; font-size: 15px;">Tým Autoservis BP</p>
+<p style="margin: 0; font-size: 11px; color: #6b7280;">Ve Žlíbku 1849/2a, Praha 9 - Horní Počernice | <a href="https://www.autoservisbp.cz" style="color: #5ba3f5; text-decoration: none;">www.autoservisbp.cz</a></p>
 </div>
 </div>
 </body>
