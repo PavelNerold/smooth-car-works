@@ -27,7 +27,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            {navItems.map(item => <a key={item.label} href={item.href} className="transition-colors text-primary-foreground font-bold">
+            {navItems.map(item => <a key={item.label} href={item.href} className="transition-colors text-primary-foreground font-bold hover:text-primary">
                 {item.label}
               </a>)}
           </nav>
@@ -54,7 +54,7 @@ const Header = () => {
         {/* Mobile Menu */}
         {isMenuOpen && <div className="md:hidden py-4 border-t border-border/50 animate-fade-in">
             <nav className="flex flex-col gap-4">
-              {navItems.map(item => <a key={item.label} href={item.href} className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2" onClick={() => setIsMenuOpen(false)}>
+              {navItems.map(item => <a key={item.label} href={item.href} className="text-muted-foreground hover:text-primary transition-colors font-medium py-2" onClick={() => setIsMenuOpen(false)}>
                   {item.label}
                 </a>)}
               <a href="tel:+420777124194" className="flex items-center gap-2 text-muted-foreground py-2">
