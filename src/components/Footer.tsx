@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Instagram, Navigation } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, Navigation, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 
@@ -66,7 +66,7 @@ const Footer = () => {
               <li><a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors"><MapPin className="w-4 h-4 text-primary" />Ve Žlíbku 1849/2a, Horní Počernice</a></li>
               <li><a href="tel:+420777124194" className="flex items-center gap-2 hover:text-primary transition-colors"><Phone className="w-4 h-4 text-primary" />+420 777 124 194</a></li>
               <li><a href="mailto:info@autoservisbp.cz" className="flex items-center gap-2 hover:text-primary transition-colors"><Mail className="w-4 h-4 text-primary" />info@autoservisbp.cz</a></li>
-              <li className="text-sm pt-2">IČ: 67998577</li>
+              <li className="flex items-center gap-2 text-sm pt-2"><FileText className="w-4 h-4 text-primary" />IČ: 67998577</li>
             </ul>
           </div>
         </div>
