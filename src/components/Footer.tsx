@@ -7,9 +7,15 @@ const Footer = () => {
   const googleMapsUrl = "https://maps.app.goo.gl/eP6UHeakrZ8NMsRA6";
 
   return (
-    <footer className="bg-card border-t border-border/50">
+    <footer className="relative border-t border-border/50 overflow-hidden">
+      {/* Blue gradient background */}
+      <div className="absolute inset-0 bg-card" />
+      <div className="absolute inset-0 bg-gradient-primary opacity-[0.08]" />
+      <div className="absolute inset-0 geometric-pattern opacity-10" />
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/10 blur-[120px] rounded-full" />
+      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-primary/5 blur-[100px] rounded-full" />
       {/* Map Section */}
-      <div className="relative h-[300px] w-full">
+      <div className="relative h-[300px] w-full z-10">
         <div className="absolute inset-0 bg-background/30 pointer-events-none z-10" />
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2557.8!2d14.6066!3d50.1116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470bee1f0e0f0f0f%3A0x1234567890abcdef!2sVe%20%C5%BDl%C3%ADbku%201849%2F2a%2C%20193%2000%20Praha%209-Horn%C3%AD%20Po%C4%8Dernice!5e0!3m2!1scs!2scz!4v1704600000000"
@@ -33,7 +39,7 @@ const Footer = () => {
       </div>
 
       {/* Footer Content */}
-      <div className="container mx-auto px-4 py-12 md:py-16">
+      <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
         <div className="grid md:grid-cols-3 gap-10 mb-10">
           <div>
             <img src={logo} alt="Autoservis BP" className="h-10 w-auto mb-4" />
