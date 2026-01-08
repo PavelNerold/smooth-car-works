@@ -1,4 +1,4 @@
-import { Wrench, Thermometer, Gauge, Settings, ClipboardCheck, Car } from "lucide-react";
+import { Wrench, Thermometer, Gauge, Settings, Car, CircleDot } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
 const Pricing = () => {
@@ -15,16 +15,6 @@ const Pricing = () => {
         { service: "Výměna spojky", price: "od 4 000 Kč" },
         { service: "Výměna tlumičů (pár)", price: "od 1 500 Kč" },
         { service: "Výměna čelního skla", price: "od 1 500 Kč" },
-      ],
-    },
-    {
-      icon: Settings,
-      title: "Diagnostika",
-      description: "Připojení, načtení a smazání závad řídící jednotky vozidla.",
-      items: [
-        { service: "Diagnostika vozidla", price: "od 500 Kč" },
-        { service: "Rozšířená diagnostika", price: "od 800 Kč" },
-        { service: "Test akumulátoru", price: "200 Kč" },
       ],
     },
     {
@@ -50,13 +40,13 @@ const Pricing = () => {
       ],
     },
     {
-      icon: ClipboardCheck,
-      title: "STK a emise",
-      description: "Příprava vozidla a zajištění prohlídky STK.",
+      icon: Settings,
+      title: "Diagnostika",
+      description: "Připojení, načtení a smazání závad řídící jednotky vozidla.",
       items: [
-        { service: "Kontrola před STK", price: "od 500 Kč" },
-        { service: "Příprava na STK (drobné opravy)", price: "individuálně" },
-        { service: "Zajištění STK + emise", price: "dle ceníku stanice" },
+        { service: "Diagnostika vozidla", price: "od 500 Kč" },
+        { service: "Rozšířená diagnostika", price: "od 800 Kč" },
+        { service: "Test akumulátoru", price: "200 Kč" },
       ],
     },
     {
@@ -70,6 +60,13 @@ const Pricing = () => {
         { service: "Oprava výfukového systému", price: "od 800 Kč" },
       ],
     },
+  ];
+
+  const pneuserviceItems = [
+    { service: "Komplet přezutí vč. vyvážení (4 kola)", prices: ["1 095 Kč", "1 395 Kč", "1 995 Kč"] },
+    { service: "Demontáž + montáž celých kol vč. vyvážení (4 kola)", prices: ["895 Kč", "995 Kč", "1 095 Kč"] },
+    { service: "Sezónní uskladnění pneumatik", prices: ["1 395 Kč", "1 395 Kč", "1 395 Kč"] },
+    { service: "Likvidace pneumatiky", prices: ["45 Kč", "45 Kč", "45 Kč"] },
   ];
 
   return (
@@ -90,6 +87,47 @@ const Pricing = () => {
             <p className="text-muted-foreground text-lg">
               Uvedené ceny jsou orientační a včetně DPH. Přesnou cenu vám sdělíme po prohlídce vozidla.
             </p>
+          </div>
+        </ScrollReveal>
+
+        {/* Pneuservis - Featured Table */}
+        <ScrollReveal>
+          <div className="mb-12">
+            <div className="bg-gradient-card rounded-3xl p-6 lg:p-8 border border-border/50 shadow-card">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-primary flex items-center justify-center">
+                  <CircleDot className="w-7 h-7 text-primary-foreground" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-2xl font-bold">Pneuservis</h3>
+                  <p className="text-muted-foreground">Přezutí, vyvážení, uskladnění pneumatik</p>
+                </div>
+              </div>
+
+              {/* Price Table */}
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-border/50">
+                      <th className="text-left py-3 pr-4 text-foreground font-semibold">Rozměr disku</th>
+                      <th className="text-center py-3 px-2 text-primary font-semibold">13" - 15"</th>
+                      <th className="text-center py-3 px-2 text-primary font-semibold">16" - 18"</th>
+                      <th className="text-center py-3 px-2 text-primary font-semibold">19" - 23"</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {pneuserviceItems.map((item, i) => (
+                      <tr key={i} className="border-b border-border/30 last:border-0">
+                        <td className="py-3 pr-4 text-foreground text-sm">{item.service}</td>
+                        <td className="py-3 px-2 text-center text-muted-foreground text-sm">{item.prices[0]}</td>
+                        <td className="py-3 px-2 text-center text-muted-foreground text-sm">{item.prices[1]}</td>
+                        <td className="py-3 px-2 text-center text-muted-foreground text-sm">{item.prices[2]}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </ScrollReveal>
 
