@@ -52,7 +52,7 @@ const Gallery = () => {
               <span className="text-gradient">servisu</span>
             </h2>
             <p className="text-muted-foreground text-lg">
-              Malý výběr – klikni na fotku pro zvětšení. Specializujeme se i na sportovní a prémiové vozy.
+              Malý výběr – klikněte na fotku pro zvětšení. Specializujeme se i na sportovní a prémiové vozy.
             </p>
           </div>
         </ScrollReveal>
