@@ -36,10 +36,10 @@ const HeroSlider = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent z-[1]" />
 
       {/* Navigation Arrows */}
-      <button onClick={prevSlide} className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-background/30 backdrop-blur-sm border border-border/30 text-foreground/70 hover:bg-background/50 hover:text-foreground transition-all" aria-label="Předchozí slide">
+      <button onClick={prevSlide} className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-background/30 backdrop-blur-sm border border-border/30 text-foreground/70 hover:bg-background/50 hover:text-foreground transition-all" aria-label="Předchozí slide">
         <ChevronLeft className="w-6 h-6" />
       </button>
-      <button onClick={nextSlide} className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-background/30 backdrop-blur-sm border border-border/30 text-foreground/70 hover:bg-background/50 hover:text-foreground transition-all" aria-label="Další slide">
+      <button onClick={nextSlide} className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-background/30 backdrop-blur-sm border border-border/30 text-foreground/70 hover:bg-background/50 hover:text-foreground transition-all" aria-label="Další slide">
         <ChevronRight className="w-6 h-6" />
       </button>
 
