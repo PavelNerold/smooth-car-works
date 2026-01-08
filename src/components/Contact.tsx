@@ -36,9 +36,13 @@ const Contact = () => {
   ];
 
   return (
-    <section id="kontakt" className="py-20 md:py-32 relative">
-      <div className="absolute inset-0 bg-gradient-primary opacity-5" />
+    <section id="kontakt" className="py-20 md:py-32 relative overflow-hidden">
+      {/* Blue gradient background */}
+      <div className="absolute inset-0 bg-gradient-primary opacity-[0.08]" />
       <div className="absolute inset-0 geometric-pattern opacity-10" />
+      {/* Decorative gradient */}
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/10 blur-[120px] rounded-full" />
+      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-primary/5 blur-[100px] rounded-full" />
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
