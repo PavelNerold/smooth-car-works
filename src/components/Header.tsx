@@ -20,8 +20,13 @@ const Header = () => {
     label: "Kontakt",
     href: "#kontakt"
   }];
-  return <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
-      <div className="container mx-auto px-4">
+  return <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg border-b border-border/50 overflow-hidden">
+      {/* Blue gradient background */}
+      <div className="absolute inset-0 bg-background/80" />
+      <div className="absolute inset-0 bg-gradient-primary opacity-[0.08]" />
+      <div className="absolute inset-0 geometric-pattern opacity-10" />
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/10 blur-[80px] rounded-full" />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
