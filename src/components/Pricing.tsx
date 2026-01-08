@@ -4,16 +4,6 @@ import ScrollReveal from "./ScrollReveal";
 const Pricing = () => {
   const priceCategories = [
     {
-      icon: Settings,
-      title: "Diagnostika",
-      description: "Připojení, načtení a smazání závad řídící jednotky vozidla.",
-      items: [
-        { service: "Diagnostika vozidla", price: "od 500 Kč" },
-        { service: "Rozšířená diagnostika", price: "od 800 Kč" },
-        { service: "Test akumulátoru", price: "200 Kč" },
-      ],
-    },
-    {
       icon: Wrench,
       title: "Servisní práce",
       description: "Ceny nezahrnují náhradní díly. Platí při zakoupení materiálu v našem servisu.",
@@ -25,6 +15,16 @@ const Pricing = () => {
         { service: "Výměna spojky", price: "od 4 000 Kč" },
         { service: "Výměna tlumičů (pár)", price: "od 1 500 Kč" },
         { service: "Výměna čelního skla", price: "od 1 500 Kč" },
+      ],
+    },
+    {
+      icon: Settings,
+      title: "Diagnostika",
+      description: "Připojení, načtení a smazání závad řídící jednotky vozidla.",
+      items: [
+        { service: "Diagnostika vozidla", price: "od 500 Kč" },
+        { service: "Rozšířená diagnostika", price: "od 800 Kč" },
+        { service: "Test akumulátoru", price: "200 Kč" },
       ],
     },
     {
