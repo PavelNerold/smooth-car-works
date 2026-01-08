@@ -27,7 +27,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            {navItems.map(item => <a key={item.label} href={item.href} className="transition-colors text-primary-foreground font-bold hover:text-primary">
+            {navItems.map(item => <a key={item.label} href={item.href} className="text-white font-bold transition-colors duration-200 hover:text-[hsl(210,85%,45%)]">
                 {item.label}
               </a>)}
           </nav>
