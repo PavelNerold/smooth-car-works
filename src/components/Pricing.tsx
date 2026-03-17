@@ -73,7 +73,7 @@ const Pricing = () => {
 
 
   const pneuserviceItems = [
-  { service: "Komplet přezutí vč. vyvážení (4 kola)", prices: ["1 095 Kč", "1 395 Kč", "1 995 Kč"] },
+  { service: "Komplet přezutí vč. vyvážení (4 kola)", prices: ["1080 Kč", "1260 - 1350 Kč", "1480 - 1820 Kč"] },
   { service: "Demontáž + montáž celých kol vč. vyvážení (4 kola)", prices: ["895 Kč", "995 Kč", "1 095 Kč"] },
   { service: "Sezónní uskladnění pneumatik", prices: ["1 395 Kč", "1 395 Kč", "1 395 Kč"] },
   { service: "Likvidace pneumatiky", prices: ["45 Kč", "45 Kč", "45 Kč"] }];
