@@ -8,9 +8,9 @@ const Pricing = () => {
     title: "Servisní práce",
     description: "Ceny nezahrnují náhradní díly. Platí při zakoupení materiálu v našem servisu.",
     items: [
-    { service: "Výměna oleje a filtru", price: "od 400 Kč" },
-    { service: "Výměna brzdových destiček (náprava)", price: "od 600 Kč" },
-    { service: "Výměna brzdových kotoučů (náprava)", price: "od 800 Kč" },
+    { service: "Výměna oleje a filtru", price: "900 Kč" },
+    { service: "Výměna brzdových destiček (náprava)", price: "od 700 Kč" },
+    { service: "Výměna brzdových kotoučů (náprava)", price: "1000 Kč" },
     { service: "Výměna rozvodů", price: "od 3 500 Kč" },
     { service: "Výměna spojky", price: "od 4 000 Kč" },
     { service: "Výměna tlumičů (pár)", price: "od 1 500 Kč" },
@@ -54,7 +54,7 @@ const Pricing = () => {
     title: "Mechanické opravy",
     description: "Časová náročnost se vypočítá individuálně na základě servisní prohlídky.",
     items: [
-    { service: "Hodinová sazba mechanika", price: "od 600 Kč/hod" },
+    { service: "Hodinová sazba mechanika", price: "od 650 Kč/hod" },
     { service: "Oprava motoru", price: "individuálně" },
     { service: "Oprava převodovky", price: "individuálně" },
     { service: "Oprava výfukového systému", price: "od 800 Kč" }]
@@ -73,10 +73,10 @@ const Pricing = () => {
 
 
   const pneuserviceItems = [
-  { service: "Komplet přezutí vč. vyvážení (4 kola)", prices: ["XXX Kč", "1080 Kč", "1260 - 1350 Kč", "1480 - 1820 Kč"] },
-  { service: "Demontáž + montáž celých kol vč. vyvážení (4 kola)", prices: ["XXX Kč", "895 Kč", "995 Kč", "1 095 Kč"] },
-  { service: "Sezónní uskladnění pneumatik", prices: ["XXX Kč", "1 395 Kč", "1 395 Kč", "1 395 Kč"] },
-  { service: "Likvidace pneumatiky", prices: ["XXX Kč", "45 Kč", "45 Kč", "45 Kč"] }];
+  { service: "Komplet přezutí vč. vyvážení (4 kola)", prices: ["880 Kč", "1080 Kč", "1260 - 1350 Kč", "1480 - 1820 Kč"] },
+  { service: "Demontáž + montáž celých kol vč. vyvážení (4 kola)", prices: ["880 Kč", "895 Kč", "995 Kč", "1 095 Kč"] },
+  { service: "Sezónní uskladnění pneumatik", prices: ["880 Kč", "1 395 Kč", "1 395 Kč", "1 395 Kč"] },
+  { service: "Likvidace pneumatiky", prices: ["880 Kč", "45 Kč", "45 Kč", "45 Kč"] }];
 
 
   return (

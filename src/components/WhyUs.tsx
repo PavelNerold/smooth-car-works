@@ -11,7 +11,7 @@ const WhyUs = () => {
     {
       icon: Wrench,
       title: "Moderní vybavení a tým odborníků",
-      description: "Servisujeme všechny značky – včetně aut v tovární záruce. Máme zkušenosti i se sportovními vozy.",
+      description: "Servisujeme všechny značky. Máme zkušenosti i se sportovními vozy.",
     },
     {
       icon: Coffee,
