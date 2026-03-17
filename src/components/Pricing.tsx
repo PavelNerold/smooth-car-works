@@ -35,7 +35,7 @@ const Pricing = () => {
     description: "Měření a seřízení geometrie kol pro správné chování vozidla.",
     items: [
     { service: "Měření geometrie", price: "od 500 Kč" },
-    { service: "Seřízení geometrie (přední náprava)", price: "od 800 Kč" },
+    { service: "Seřízení geometrie (přední náprava)", price: "od 1000 Kč" },
     { service: "Seřízení geometrie (obě nápravy)", price: "od 1 400 Kč" }]
 
   },
