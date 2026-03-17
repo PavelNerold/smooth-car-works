@@ -73,10 +73,10 @@ const Pricing = () => {
 
 
   const pneuserviceItems = [
-  { service: "Komplet přezutí vč. vyvážení (4 kola)", prices: ["1080 Kč", "1260 - 1350 Kč", "1480 - 1820 Kč"] },
-  { service: "Demontáž + montáž celých kol vč. vyvážení (4 kola)", prices: ["895 Kč", "995 Kč", "1 095 Kč"] },
-  { service: "Sezónní uskladnění pneumatik", prices: ["1 395 Kč", "1 395 Kč", "1 395 Kč"] },
-  { service: "Likvidace pneumatiky", prices: ["45 Kč", "45 Kč", "45 Kč"] }];
+  { service: "Komplet přezutí vč. vyvážení (4 kola)", prices: ["XXX Kč", "1080 Kč", "1260 - 1350 Kč", "1480 - 1820 Kč"] },
+  { service: "Demontáž + montáž celých kol vč. vyvážení (4 kola)", prices: ["XXX Kč", "895 Kč", "995 Kč", "1 095 Kč"] },
+  { service: "Sezónní uskladnění pneumatik", prices: ["XXX Kč", "1 395 Kč", "1 395 Kč", "1 395 Kč"] },
+  { service: "Likvidace pneumatiky", prices: ["XXX Kč", "45 Kč", "45 Kč", "45 Kč"] }];
 
 
   return (
@@ -125,6 +125,7 @@ const Pricing = () => {
                   <thead>
                     <tr className="border-b border-border/50">
                       <th className="text-left py-3 pr-4 text-foreground font-semibold">Rozměr disku</th>
+                      <th className="text-center py-3 px-2 text-primary font-semibold">13" - 14"</th>
                       <th className="text-center py-3 px-2 text-primary font-semibold">15" - 16"</th>
                       <th className="text-center py-3 px-2 text-primary font-semibold">17" - 18"</th>
                       <th className="text-center py-3 px-2 text-primary font-semibold">19" - 23"</th>
