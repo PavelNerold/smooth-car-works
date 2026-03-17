@@ -125,6 +125,7 @@ const Pricing = () => {
                   <thead>
                     <tr className="border-b border-border/50">
                       <th className="text-left py-3 pr-4 text-foreground font-semibold">Rozměr disku</th>
+                      <th className="text-center py-3 px-2 text-primary font-semibold">13" - 14"</th>
                       <th className="text-center py-3 px-2 text-primary font-semibold">15" - 16"</th>
                       <th className="text-center py-3 px-2 text-primary font-semibold">17" - 18"</th>
                       <th className="text-center py-3 px-2 text-primary font-semibold">19" - 23"</th>
