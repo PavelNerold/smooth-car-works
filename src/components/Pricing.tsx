@@ -54,7 +54,7 @@ const Pricing = () => {
     title: "Mechanické opravy",
     description: "Časová náročnost se vypočítá individuálně na základě servisní prohlídky.",
     items: [
-    { service: "Hodinová sazba mechanika", price: "od 600 Kč/hod" },
+    { service: "Hodinová sazba mechanika", price: "od 650 Kč/hod" },
     { service: "Oprava motoru", price: "individuálně" },
     { service: "Oprava převodovky", price: "individuálně" },
     { service: "Oprava výfukového systému", price: "od 800 Kč" }]
