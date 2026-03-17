@@ -138,6 +138,7 @@ const Pricing = () => {
                         <td className="py-3 px-2 text-center text-muted-foreground text-sm">{item.prices[0]}</td>
                         <td className="py-3 px-2 text-center text-muted-foreground text-sm">{item.prices[1]}</td>
                         <td className="py-3 px-2 text-center text-muted-foreground text-sm">{item.prices[2]}</td>
+                        <td className="py-3 px-2 text-center text-muted-foreground text-sm">{item.prices[3]}</td>
                       </tr>
                     )}
                   </tbody>
