@@ -74,9 +74,9 @@ const Pricing = () => {
 
   const pneuserviceItems = [
   { service: "Komplet přezutí vč. vyvážení (4 kola)", prices: ["700 Kč", "1080 Kč", "1260 - 1350 Kč", "1480 - 1820 Kč"] },
-  { service: "Demontáž + montáž celých kol vč. vyvážení (4 kola)", prices: ["750 Kč", "850 Kč", "890 - 970 Kč", "1 095 Kč"] },
-  { service: "Sezónní uskladnění pneumatik", prices: ["750 Kč", "750 Kč", "950 Kč", "1 395 Kč"] },
-  { service: "Likvidace pneumatiky", prices: ["50 Kč", "50 Kč", "50 Kč", "45 Kč"] }];
+  { service: "Demontáž + montáž celých kol vč. vyvážení (4 kola)", prices: ["750 Kč", "850 Kč", "890 - 970 Kč", "1070 - 1320 Kč"] },
+  { service: "Sezónní uskladnění pneumatik", prices: ["750 Kč", "750 Kč", "950 Kč", "950 Kč"] },
+  { service: "Likvidace pneumatiky", prices: ["50 Kč", "50 Kč", "50 Kč", "50 Kč"] }];
 
 
   return (
@@ -138,6 +138,7 @@ const Pricing = () => {
                         <td className="py-3 px-2 text-center text-muted-foreground text-sm">{item.prices[0]}</td>
                         <td className="py-3 px-2 text-center text-muted-foreground text-sm">{item.prices[1]}</td>
                         <td className="py-3 px-2 text-center text-muted-foreground text-sm">{item.prices[2]}</td>
+                        <td className="py-3 px-2 text-center text-muted-foreground text-sm">{item.prices[3]}</td>
                       </tr>
                     )}
                   </tbody>
