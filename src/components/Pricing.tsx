@@ -8,9 +8,9 @@ const Pricing = () => {
     title: "Servisní práce",
     description: "Ceny nezahrnují náhradní díly. Platí při zakoupení materiálu v našem servisu.",
     items: [
-    { service: "Výměna oleje a filtru", price: "900 Kč" },
+    { service: "Výměna oleje a filtru", price: "od 900 Kč" },
     { service: "Výměna brzdových destiček (náprava)", price: "od 700 Kč" },
-    { service: "Výměna brzdových kotoučů (náprava)", price: "1000 Kč" },
+    { service: "Výměna brzdových kotoučů (náprava)", price: "od 1000 Kč" },
     { service: "Výměna rozvodů", price: "od 3 500 Kč" },
     { service: "Výměna spojky", price: "od 4 000 Kč" },
     { service: "Výměna tlumičů (pár)", price: "od 1 500 Kč" },
@@ -46,7 +46,7 @@ const Pricing = () => {
     items: [
     { service: "Diagnostika vozidla", price: "od 500 Kč" },
     { service: "Rozšířená diagnostika", price: "od 800 Kč" },
-    { service: "Test akumulátoru", price: "200 Kč" }]
+    { service: "Test akumulátoru", price: "od 200 Kč" }]
 
   },
   {
