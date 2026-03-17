@@ -46,7 +46,7 @@ const Pricing = () => {
     items: [
     { service: "Diagnostika vozidla", price: "od 500 Kč" },
     { service: "Rozšířená diagnostika", price: "od 800 Kč" },
-    { service: "Test akumulátoru", price: "200 Kč" }]
+    { service: "Test akumulátoru", price: "od 200 Kč" }]
 
   },
   {
