@@ -1,16 +1,37 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { SMTPClient } from "https://deno.land/x/denomailer@1.6.0/mod.ts";
+import { z } from "https://deno.land/x/zod@v3.23.8/mod.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-interface ContactEmailRequest {
-  name: string;
-  email: string;
-  phone?: string;
-  message: string;
+const ContactSchema = z.object({
+  name: z.string().trim().min(1, "Jméno je povinné").max(100, "Jméno je příliš dlouhé"),
+  email: z.string().trim().email("Neplatný e-mail").max(255),
+  phone: z
+    .string()
+    .trim()
+    .max(30)
+    .regex(/^[+0-9 ()\-./]*$/, "Neplatný telefon")
+    .optional()
+    .or(z.literal("")),
+  message: z.string().trim().min(1, "Zpráva je povinná").max(2000, "Zpráva je příliš dlouhá"),
+});
+
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+// Sanitizace hodnot do hlaviček (zabránění CRLF / header injection)
+function sanitizeHeaderValue(text: string): string {
+  return text.replace(/[\r\n]+/g, " ").trim().slice(0, 200);
 }
 
 const handler = async (req: Request): Promise<Response> => {
@@ -19,7 +40,31 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { name, email, phone, message }: ContactEmailRequest = await req.json();
+    let payload: unknown;
+    try {
+      payload = await req.json();
+    } catch {
+      return new Response(
+        JSON.stringify({ error: "Neplatný formát požadavku" }),
+        { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
+    const parsed = ContactSchema.safeParse(payload);
+    if (!parsed.success) {
+      return new Response(
+        JSON.stringify({ error: "Neplatná vstupní data", details: parsed.error.flatten().fieldErrors }),
+        { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
+    const { name, email, phone, message } = parsed.data;
+
+    // Bezpečné hodnoty pro vložení do HTML
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safePhone = phone ? escapeHtml(phone) : "";
+    const safeMessage = escapeHtml(message);
 
     const smtpHost = Deno.env.get("SMTP_HOST")!;
     const smtpPort = parseInt(Deno.env.get("SMTP_PORT") || "465");
@@ -79,19 +124,19 @@ const handler = async (req: Request): Promise<Response> => {
 <div style="padding: 35px;">
 <div style="margin-bottom: 24px;">
 <div style="font-weight: 600; color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Jméno</div>
-<div style="color: #ffffff; font-size: 16px; padding: 14px 18px; background: linear-gradient(135deg, #151821 0%, #0f1218 100%); border-radius: 10px; border-left: 3px solid #176fd3;">${name}</div>
+<div style="color: #ffffff; font-size: 16px; padding: 14px 18px; background: linear-gradient(135deg, #151821 0%, #0f1218 100%); border-radius: 10px; border-left: 3px solid #176fd3;">${safeName}</div>
 </div>
 <div style="margin-bottom: 24px;">
 <div style="font-weight: 600; color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">E-mail</div>
-<div style="color: #ffffff; font-size: 16px; padding: 14px 18px; background: linear-gradient(135deg, #151821 0%, #0f1218 100%); border-radius: 10px; border-left: 3px solid #176fd3;"><a href="mailto:${email}" style="color: #5ba3f5; text-decoration: none;">${email}</a></div>
+<div style="color: #ffffff; font-size: 16px; padding: 14px 18px; background: linear-gradient(135deg, #151821 0%, #0f1218 100%); border-radius: 10px; border-left: 3px solid #176fd3;"><a href="mailto:${safeEmail}" style="color: #5ba3f5; text-decoration: none;">${safeEmail}</a></div>
 </div>
-${phone ? `<div style="margin-bottom: 24px;">
+${safePhone ? `<div style="margin-bottom: 24px;">
 <div style="font-weight: 600; color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Telefon</div>
-<div style="color: #ffffff; font-size: 16px; padding: 14px 18px; background: linear-gradient(135deg, #151821 0%, #0f1218 100%); border-radius: 10px; border-left: 3px solid #176fd3;"><a href="tel:${phone}" style="color: #5ba3f5; text-decoration: none;">${phone}</a></div>
+<div style="color: #ffffff; font-size: 16px; padding: 14px 18px; background: linear-gradient(135deg, #151821 0%, #0f1218 100%); border-radius: 10px; border-left: 3px solid #176fd3;"><a href="tel:${safePhone}" style="color: #5ba3f5; text-decoration: none;">${safePhone}</a></div>
 </div>` : ''}
 <div style="background: linear-gradient(135deg, #151821 0%, #0f1218 100%); border: 1px solid rgba(23, 111, 211, 0.2); border-radius: 12px; padding: 24px; margin-top: 28px;">
 <div style="font-weight: 600; color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px;">Zpráva</div>
-<p style="margin: 0; white-space: pre-wrap; color: #e5e7eb; line-height: 1.7; font-size: 15px;">${message}</p>
+<p style="margin: 0; white-space: pre-wrap; color: #e5e7eb; line-height: 1.7; font-size: 15px;">${safeMessage}</p>
 </div>
 </div>
 <div style="background: #0a0c10; padding: 24px; text-align: center; color: #6b7280; font-size: 12px; border-top: 1px solid rgba(23, 111, 211, 0.15);">
@@ -143,11 +188,11 @@ Odesláno z kontaktního formuláře na webu autoservisbp.cz
 <span style="font-size: 40px; line-height: 80px; color: #ffffff;">&#10003;</span>
 </div>
 <h2 style="color: #ffffff; margin: 0 0 16px 0; font-size: 26px; font-weight: 700;">Děkujeme za Vaši zprávu!</h2>
-<p style="color: #9ca3af; line-height: 1.7; margin: 0; font-size: 15px;">Vážený/á ${name}, Vaši zprávu jsme úspěšně přijali a budeme se jí věnovat co nejdříve. Obvykle odpovídáme do 24 hodin v pracovních dnech.</p>
+<p style="color: #9ca3af; line-height: 1.7; margin: 0; font-size: 15px;">Vážený/á ${safeName}, Vaši zprávu jsme úspěšně přijali a budeme se jí věnovat co nejdříve. Obvykle odpovídáme do 24 hodin v pracovních dnech.</p>
 </div>
 <div style="background: linear-gradient(135deg, #151821 0%, #0f1218 100%); border-radius: 12px; padding: 24px; margin: 30px 0; border-left: 3px solid #176fd3;">
 <div style="font-weight: 600; color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px;">Kopie Vaší zprávy:</div>
-<p style="margin: 0; white-space: pre-wrap; color: #e5e7eb; line-height: 1.7; font-size: 15px;">${message}</p>
+<p style="margin: 0; white-space: pre-wrap; color: #e5e7eb; line-height: 1.7; font-size: 15px;">${safeMessage}</p>
 </div>
 <div style="background: linear-gradient(135deg, #176fd3 0%, #0d4a8f 100%); color: #fff; padding: 24px; border-radius: 12px; text-align: center; box-shadow: 0 10px 30px rgba(23, 111, 211, 0.3);">
 <p style="margin: 0 0 12px 0; font-size: 14px; opacity: 0.9;">Potřebujete rychlou odpověď?</p>
@@ -163,12 +208,14 @@ Odesláno z kontaktního formuláře na webu autoservisbp.cz
 </body>
 </html>`;
 
+    const safeSubjectName = sanitizeHeaderValue(name);
+
     // Odeslat email adminu
     console.log("Sending admin email...");
     await client.send({
       from: smtpUser,
       to: "info@autoservisbp.cz",
-      subject: `Nová zpráva z webu od: ${name}`,
+      subject: `Nová zpráva z webu od: ${safeSubjectName}`,
       html: adminEmailHtml,
     });
 
@@ -192,7 +239,7 @@ Odesláno z kontaktního formuláře na webu autoservisbp.cz
   } catch (error: any) {
     console.error("Error in send-contact-email function:", error);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: "Nepodařilo se odeslat zprávu" }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
